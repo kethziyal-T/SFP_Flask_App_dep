@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Fault Prediction Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <!-- Embedded Industry Vector SVG Icon -->
+            <div class="logo-area">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+            </div>
+            <h1>Sensor Fault Prediction</h1>
+            <p class="subtitle">Embedded AI-SFP Diagnostic Center</p>
+        </header>
+
+        <!-- Main Diagnostic Card -->
+        <main class="card">
+            <form action="/predict" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="Operational_Hours">Operational Hours (hrs)</label>
+                        <input type="number" id="Operational_Hours" name="Operational_Hours" step="any" placeholder="e.g., 94006" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Temperature_C">Temperature (°C)</label>
+                        <input type="number" id="Temperature_C" name="Temperature_C" step="any" placeholder="e.g., 49.63" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Vibration_mms">Vibration Profile (mm/s)</label>
+                        <input type="number" id="Vibration_mms" name="Vibration_mms" step="any" placeholder="e.g., 23.78" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Oil_Level_pct">Oil Level Indicator (%)</label>
+                        <input type="number" id="Oil_Level_pct" name="Oil_Level_pct" step="any" min="0" max="100" placeholder="e.g., 42.96" required>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="Remaining_Useful_Life_days">Remaining Useful Life (days)</label>
+                    <input type="number" id="Remaining_Useful_Life_days" name="Remaining_Useful_Life_days" step="any" placeholder="e.g., 0" required>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Run Real-time Analysis</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

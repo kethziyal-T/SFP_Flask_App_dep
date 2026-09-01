@@ -1,0 +1,199 @@
+/* --- Base Variables & Core Setup --- */
+:root {
+    --bg-dark: #090d16;
+    --card-bg: #131a26;
+    --text-primary: #f1f5f9;
+    --text-muted: #64748b;
+    --accent-blue: #3b82f6;
+    --accent-blue-hover: #1d4ed8;
+    --status-healthy: #10b981;
+    --status-healthy-bg: rgba(16, 185, 129, 0.08);
+    --status-faulty: #ef4444;
+    --status-faulty-bg: rgba(239, 68, 68, 0.08);
+    --border-color: #1e293b;
+    --input-focus: #475569;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+/* --- Structural Container --- */
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* --- Header Layout & Embedded Logo Structure --- */
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.logo-area {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 14px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-header h1 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* --- Modern Interactive Dashboard Card --- */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Responsive Multi-Column Form Grid Layout --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    margin-bottom: 28px;
+}
+
+.form-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    background-color: var(--card-bg);
+}
+
+/* --- Interface Buttons --- */
+.btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-submit {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-blue-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+    color: #ffffff;
+}
+
+/* --- Inference Dynamic Response System --- */
+.alert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+}
+
+.status-graphic {
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.alert h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.healthy-alert {
+    background-color: var(--status-healthy-bg);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--status-healthy);
+}
+
+.faulty-alert {
+    background-color: var(--status-faulty-bg);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--status-faulty);
+}
